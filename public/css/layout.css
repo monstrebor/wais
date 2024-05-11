@@ -1,0 +1,29 @@
+.layout_top_nav{
+    width: auto;
+    height: 60px;
+    background-color: lightgreen;
+    border: none;
+    text-align: center;
+}
+
+.top_nav_font{
+    color: black;
+    font-weight: bolder;
+    font-size: 32px;
+    margin: auto;
+    padding-top: 10px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.mnsmpclogo{
+    height: 60px;
+    width: 60px;
+    margin-right: 0;
+    border-radius: 30%;
+}
+
+.top_nav_rows{
+    display: flex;
+}
+
+
