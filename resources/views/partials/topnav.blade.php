@@ -14,10 +14,10 @@
                     </button>
                     <div id="accountDialog" style="display: none; position: fixed; z-index: 1; left: 0; top: 0;
                     width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4);">
-                        <div style="position: relative; background-color: #fefefe; margin: 10% auto; padding: 10px; border: 1px solid #000000;
+                        <div style="position: relative; background-color: #fefefe; margin: 10% auto; padding: 2%; border: 2px solid #000000; border-radius: 10%;
                         width: 15%; text-align: center;">
                             <button style="color: rgb(255, 0, 0); margin-left: 70%;" onclick="closeDialog()">X</button>
-                            <p style="color: black; padding-bottom: 10px">Select your account type</p>
+                            <p style="color: black; padding-bottom: 10%"><strong>Select your account type</strong></p>
                             <div style="flex">
                                 <button style="padding: 4px; color: black; border: 1px solid rgb(0, 0, 0);" onclick="selectAccountType('regular')"> Regular </button>
                                 <button style="padding: 4px; color: black; border: 1px solid rgb(0, 0, 0); margin-left: 5%;" onclick="selectAccountType('associate')"> Associate </button>

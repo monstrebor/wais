@@ -2,6 +2,16 @@
 
 @section('content')
 <div>
+    <div style="display: flex; justify-content: right; flex-wrap: nowrap;">
+        <div style="margin-top: 2%; margin-right: 3%;">
+            <button style="border: 1px solid black; border-radius: 5%; pading: 20px;">
+                <a style="text-decoration: none; color: black;" href="{{route('regularMember.index')}}"><h3>Index</h3></a>
+            </button>
+            <button style="border: 1px solid black; border-radius: 5%; pading: 20px; margin-left: 10px;">
+                <a style="text-decoration: none; color: black;" href="{{ route('home') }}"><h3>Home</h3></a>
+            </button>
+        </div>
+    </div>
     <div style="text-align: center; border: 2px solid black; margin-left: 20%; margin-right: 20%;">
         <div>
             @if ($errors->any())
@@ -12,11 +22,11 @@
                 </ul>
             @endif
         </div>
-        <form method="post" action="{{route('memberApp.store')}}">
+        <form method="post" action="{{route('regularMember.store')}}">
         @csrf
         @method('post')
         <div style="text-align: center">
-            <h1>Registration</h1>
+            <h1>Registration for Regular Member</h1>
             <div style="margin: 10px">
                 <label for="username">username</label>
                 <input type="text" name="username" placeholder="username">
@@ -24,6 +34,10 @@
             <div style="margin: 10px">
                 <label for="password">password</label>
                 <input type="password" name="password" placeholder="password">
+            </div>
+            <div style="margin: 10px">
+                <label for="confirm-password">confirm password</label>
+                <input type="password" name="password_confirmation" id="confirm-password" placeholder="password">
             </div>
             <div style="margin: 10px">
                 <label for="email">email</label>
@@ -94,7 +108,7 @@
                 <input type="date" name="birthday_of_dependents" placeholder="birthday of dependents">
             </div>
             <div>
-                <input type="submit" value="Submit the Register Form" style="margin:10px">
+                <input type="submit" value="Submit" style="margin:10px">
             </div>
         </div>
     </div>

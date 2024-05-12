@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\MemberAppController;
+use App\Http\Controllers\AssociateMemberController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\RegularMemberController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -16,7 +17,9 @@ Route::get('/', function () {
 // Route::put('/memberApp/{memberApp}/update', [MemberAppController::class, 'update'])->name('memberApp.update');
 // Route::delete('/memberApp/{memberApp}/destroy', [MemberAppController::class, 'destroy'])->name('memberApp.destroy');
 
-Route::resource('memberApp', MemberAppController::class);
+Route::resource('regularMember', RegularMemberController::class);
+
+Route::resource('associateMember', AssociateMemberController::class);
 
 Route::get('/dashboard', function () {
     return view('dashboard');

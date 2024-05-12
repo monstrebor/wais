@@ -46,9 +46,9 @@
             function selectAccountType(type) {
                 console.log(type + ' account selected');
                 if (type === 'regular') {
-                    window.location.href = "{{ route('memberApp.create') }}";
+                    window.location.href = "{{ route('regularMember.create') }}";
                 } else if (type === 'associate') {
-                    // Handle associate account type if needed
+                    window.location.href = "{{ route('associateMember.create') }}";
                 }
                 closeDialog();
             }

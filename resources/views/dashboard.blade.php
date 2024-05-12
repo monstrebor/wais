@@ -7,12 +7,14 @@
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+            <div style="display: flex; justify-content: space-between;" class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900">
                     {{ __("You're logged in!") }}
-                    <div style="border: 1px black; color: black">
+                </div>
+                <div>
+                    <button style="margin-top: 20%; padding: 5px; border: 1px solid black">
                         <a href="{{ route('home') }}">Go to Home</a>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>

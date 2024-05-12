@@ -3,17 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\MemberApp;
+use App\Models\AssociateMember;
+use Illuminate\Support\Facades\Hash;
 
-class MemberAppController extends Controller
+class associateMemberController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $memberApps = MemberApp::all();
-        return view('memberApp.index',['memberApps' => $memberApps]);
+        $associateMembers = AssociateMember::all();
+        return view('associateMember.index',['associateMembers' => $associateMembers]);
     }
 
     /**
@@ -21,7 +22,7 @@ class MemberAppController extends Controller
      */
     public function create()
     {
-        return view('memberApp.create');
+        return view('associateMember.create');
     }
 
     /**
@@ -31,7 +32,7 @@ class MemberAppController extends Controller
     {
         $data = $request->validate([
             'username' => 'required',
-            'password' => 'required',
+            'password' => 'required|confirmed',
             'email' => 'required',
             'first_name' => 'required',
             'middle_name' => 'nullable',
@@ -51,19 +52,20 @@ class MemberAppController extends Controller
             'birthday_of_dependents' => 'required',
         ]);
 
-        $newMemberApp = MemberApp::create($data);
+        $data['password'] = Hash::make($request->password);
 
-        return redirect(route('memberApp.index'));
+        $newAssociateMember = AssociateMember::create($data);
+
+        return redirect(route('associateMember.index'));
     }
 
-    public function edit(MemberApp $memberApp){
-        return view('memberApp.edit', ['memberApp' => $memberApp]);
+    public function edit(AssociateMember $associateMember){
+        return view('associateMember.edit', ['associateMember' => $associateMember]);
     }
 
-    public function update(MemberApp $memberApp, Request $request){
+    public function update(AssociateMember $associateMember, Request $request){
         $data = $request->validate([
             'username' => 'required',
-            'password' => 'required',
             'email' => 'required',
             'first_name' => 'required',
             'middle_name' => 'nullable',
@@ -82,17 +84,23 @@ class MemberAppController extends Controller
             'name_of_dependents' => 'required',
             'birthday_of_dependents' => 'required',
         ]);
-        $memberApp->update($data);
 
-        return redirect(route('memberApp.index'))->with('success','Registration has been updated.');
+        if ($request->filled('password')) {
+            $data['password'] = Hash::make($request->password);
+        }
+
+        $associateMember->update($data);
+
+        return redirect(route('associateMember.index'))->with('success','Registration has been updated.');
     }
 
 
-    public function destroy(MemberApp $memberApp){
-        $memberApp->delete();
+    public function destroy(AssociateMember $associateMember){
+        $associateMember->delete();
 
-        return redirect(route('memberApp.index'))->with('success','Registration has been deleted.');
+        return redirect(route('associateMember.index'))->with('success','Registration has been deleted.');
     }
 
 }
+
 
